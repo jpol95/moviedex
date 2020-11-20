@@ -23,8 +23,8 @@ console.log(process.env.API_TOKEN)
 app.use(function validateBearerToken(req, res, next){
     const API_TOKEN = process.env.API_TOKEN
     const givenToken = req.get("Authorization")
-    console.log(process.env.API_KEY)
-    if (!givenToken || givenToken.split(" ") !== "Bearer" || givenToken.split(" ")[1] !== API_TOKEN){
+    console.log(process.env.API_TOKEN)
+    if (!givenToken || givenToken.split(" ")[1] !== API_TOKEN){
         return res.status(401).json({error: "Unauthorized"})
     }
     next()
